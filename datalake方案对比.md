@@ -33,7 +33,7 @@ Delta Lake是Spark商业公司Databricks的开源项目,是Databricks公司壮�
 官网简介: Delta Lake is an open-source storage framework that enables building a
 Lakehouse architecture with compute engines including Spark, PrestoDB, Flink, Trino, and Hive and APIs for Scala, Java, Rust, Ruby, and Python.
 
-![image-20230112154210961](/Users/can.wang/Library/Application Support/typora-user-images/image-20230112154210961.png)
+![image-20230112154210961](https://raw.githubusercontent.com/nonpool/storyImg/master/img/image-20230112154210961.png)
 
 - Apache Hudi
 
@@ -57,7 +57,7 @@ Apache Iceberg由Netflix内部孵化的开源项目,最初为了解决Hive的诸
 
 其架构图为:
 
-![Comp-1](/Users/can.wang/Downloads/Comp-1.gif)
+![Comp-1](https://raw.githubusercontent.com/nonpool/storyImg/master/img/Comp-1.gif)
 
 
 
@@ -134,7 +134,7 @@ github repo对比:
 
 主要贡献方:
 
-![未命名绘图](/Users/can.wang/Downloads/未命名绘图.jpg)
+![未命名绘图](https://raw.githubusercontent.com/nonpool/storyImg/master/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.jpg)
 
 作为目前主流的开源数据湖方案,它们近期的社区活跃度都比较高.但是Delta和Hudi以后起之秀的姿态快速崛起,在开源社区的建设和推动方面明显强Iiceberg.
 
@@ -166,7 +166,7 @@ https://brooklyndata.co/blog/benchmarking-open-table-formats
 
 仅在某些技术细节上有比较明显区别,比如说Hudi支持Merge On Read表,支持增量查询,Iceberg高度抽象,能定义自描述的schema,delta与spark集成度更高等等.
 
-从宏观层面看,无论是Iceberg/Delta还是Hudi都能满足我们当下以及可预见的未来需求,考虑到综合性能和社区活跃度,更倾向于使用Delta作为存储方案
+从宏观层面看,无论是Iceberg/Delta还是Hudi都能满足我们当下以及可预见的未来需求,但从综合性能的角度来看Dleta和Hudi都是比Iceberg更优的选择,同时Delta有成熟的商业化云产品(Databricks)的支持,这一点会比Hudi更有优势,所以我们会优先考虑使用Delta作为数据湖存储方案.
 
 
 
@@ -196,7 +196,7 @@ https://brooklyndata.co/blog/benchmarking-open-table-formats
 
 如果说阿里云EMR on ECS是使用阿里云的各类开箱即用的产品来尽量满足我们当前的需求,那EMR on ACK spark版就是基于spark on kubernetes的完全定制方案,EMR on ACK spark版是仅仅是在ACK上安装了spark相关的组件,以及支持使用DLF来管理元数据,其他的都需要自行搭建
 
-![image-20230202150914419](/Users/can.wang/Library/Application Support/typora-user-images/image-20230202150914419.png)
+![image-20230202150914419](https://raw.githubusercontent.com/nonpool/storyImg/master/img/image-20230202150914419.png)
 
 这个方案的优缺点都很突出
 
@@ -216,9 +216,7 @@ https://brooklyndata.co/blog/benchmarking-open-table-formats
 
 Databricks是Spark商业公司Databricks的产品,生态及其丰富,除了spark和delta之外还集成了安全/notebook/权限/可视化调度/数据质量/CICD支持等等功能,且所有工具几乎都是开箱即用的,只不过阿里云没有databricks产品,中国区有databricks产品的可靠云服务商,也就只有Azure了.
 
-![image-20230202161334611](/Users/can.wang/Library/Application Support/typora-user-images/image-20230202161334611.png)
-
-![image-20230203100409481](/Users/can.wang/Library/Application Support/typora-user-images/image-20230203100409481.png)
+![image-20230203100409481](https://raw.githubusercontent.com/nonpool/storyImg/master/img/image-20230203100409481.png)
 
 
 
@@ -239,16 +237,16 @@ Databricks是Spark商业公司Databricks的产品,生态及其丰富,除了spark
 
 ### 详细对比
 
-|          | Aliyun EMR on ECS                                      | Aliyun EMR on ECS spark版             | Azure Databricks             |
-| -------- | ------------------------------------------------------ | ------------------------------------- | ---------------------------- |
-| CI/CD    | 不支持                                                 | 支持                                  | 支持                         |
-| Notebook | 自带                                                   | 自建                                  | 自带                         |
-| Document | 较少                                                   | 依赖于开源组件                        | 较为详细                     |
-| 易用性   | 开箱即用                                               | 大部分组件需要自建                    | 开箱即用                     |
-| 弹性伸缩 | 按时间或负载伸缩                                       | 按负载/任务伸缩                       | 支持                         |
-| 任务调度 | 依赖DataWorksB<br />支持拖拽                           | 自建Airflow<br />拖拽需要额外引入组件 | 开箱即用<br />支持拖拽和code |
-| 数据安全 | 依赖DataWorks<br />权限/分级分类/隐私数据保护/风险预警 | 自建,功能按需加入                     | 开箱即用<br />               |
-|          |                                                        |                                       |                              |
-|          |                                                        |                                       |                              |
-|          |                                                        |                                       |                              |
-|          |                                                        |                                       |                              |
+|          | Aliyun EMR on ECS                                      | Aliyun EMR on ECS spark版             | Azure Databricks         |
+| -------- | ------------------------------------------------------ | ------------------------------------- | ------------------------ |
+| CI/CD    | 不支持                                                 | 支持                                  | 支持                     |
+| Notebook | 自带                                                   | 自建                                  | 自带                     |
+| Document | 较少                                                   | 依赖于开源组件                        | 较为详细                 |
+| 易用性   | 开箱即用                                               | 大部分组件需要自建                    | 开箱即用                 |
+| 弹性伸缩 | 按时间或负载伸缩                                       | 按负载/任务伸缩                       | 支持                     |
+| 任务调度 | 依赖DataWorksB<br />支持拖拽                           | 自建Airflow<br />拖拽需要额外引入组件 | 自带<br />支持拖拽和code |
+| 数据安全 | 依赖DataWorks<br />权限/分级分类/隐私数据保护/风险预警 | 自建,功能按需加入                     | 自带<br />               |
+|          |                                                        |                                       |                          |
+|          |                                                        |                                       |                          |
+|          |                                                        |                                       |                          |
+|          |                                                        |                                       |                          |
