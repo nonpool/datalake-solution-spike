@@ -1,15 +1,15 @@
 ## Current Pain Point
 
 1. It will be a serious flaw that if the system only support us copy and paste the code to Simba web page integrated editor, which means we cannot do DevOps or deployment automatically. Imaging if we have development, QA and production environments, then the data engineers would copy and paste the code manually from page every day. These large number of manual operations would make the entire development process low reliability and high complexity.
-2. The experience in web editor is extremely poor, and we will also lose the software engineering processes.
-- Breakpoints are not supported. The development process would be extremely painful that if the development resources only be accessible online, and may need to be debugged the whole module in the editor of the simba webpage without breakpoints.
+2. The experience in web editor is extremely bad, and we can't guarantee the engineered eaither.
+- Breakpoints are not supported. The development experience would be very bad because the development resources only be accessible online, and may need to be debugged the whole module in the editor of the simba webpage without breakpoints.
 - Files cross import is not supported. This will lead to the code smell. If many modules have the same function, then you have to write repeated code in each file which leads to code redundancy. And for more complex functions, the amount of code in a file may be extremely large, which is difficult to maintain.
 - Passing parameters or environment variables is not supported. It would lead to security issues if we leave sensitive information, for example, database account and passwords as plain text on Simba webpage without encryption.
 3. There are almost no relevant reference documents, all functions can only be explored by ourselves, and the cost of getting started is relatively high. This problem is especially obvious in multi-team collaboration.
 4. It is hard to do trouble-shooting while the code execution failed since the error messages on webpage is quite limited.
-5. The python code on the simba actually parses the '#' symbol in string into a comment, causing the code to fail to execute. Which also reflects the low reliability of the system.
+5. The python code with '#' can't parsed successfully by simba, which causes the codes fail to execute. This case also reflects the low reliability of the system.
 6. At present, spark/flink on simba are all unavailable, which is also unacceptable for big data processing.
-7. The processing efficiency is low. Usually, one simple SQL execution takes more than 10 seconds. When there is a large amount of data to be processed, it is difficult to directly optimize it because it does not support spark.
+7. The processing efficiency is low. Usually, one simple SQL execution takes more than 10 seconds. When there is a large amount of data to be processed, the performance is hard to improve without spark enginee currently
 8. Currently, the data reuse rate in Simba is low, and there is no specification for data development. Both data and code are messy, with a lot of redundant data and redundant processing
 9. There is no data quality monitoring. Without auto data quality pre-check, we would only have manually post-checked for data correctness during the whole data process.
 10. The data is directly stored on the ECS disk without any backup mechanism. It is also hard to migrate.
