@@ -112,7 +112,7 @@ Iceberg does a better job here, abstracting its own schema and not binding any s
 | Apache Doris  | [Read](https://doris.apache.org/docs/ecosystem/external-table/iceberg-of-doris?_highlight=iceberg) | [Read](https://doris.apache.org/docs/ecosystem/external-table/hudi-external-table/) |                                                              |
 | Starrocks     | [Read](https://docs.starrocks.com/en-us/main/using_starrocks/External_table#apache-iceberg-external-table) | [Read](https://docs.starrocks.com/en-us/main/using_starrocks/External_table#hudi-external-table) | [Preview](https://docs.starrocks.io/en-us/main/data_source/catalog/deltalake_catalog) |
 
-It can be seen that all above three data lake frameworks can read and write mainstream computing engines such as Spark and Flink.  In additon, also support most other mainstream technologies.
+It can be seen that all above three data lake frameworks can read and write mainstream computing engines such as Spark and Flink.  In additon, also support most other mainstream technologies. With comparison, Iceberg supports smaller scope of technologies while Delta (open source edition) temporarily does not support Kafka Connect.
 
 In addition, it should be noted that although they support many reading and writing frameworks, some functions may only be used with specific frameworks to have more complete functions and higher performance. For example, the reading and writing of Delta actually has many advanced features that only support Spark.
 
@@ -138,7 +138,7 @@ As the current mainstream open source data lake solutions, their recent communit
 
 The open source and commercial versions of Delta provide detailed internal design documents, making it easy for users to understand the internal design and core functions of this solution. In addition, Databricks also share a large number of technical videos and speeches to public. Uber's engineers also shared a lot of Hudi's technical details and internal solutions. At the same time, they are also actively promoting community building in China, providing official technical public accounts and weekly mailing lists.
 
-### 4. Performance Comparison
+### 5. Performance Comparison
 
 ![img](https://assets.website-files.com/61f38d7a4e41d6a673cd65c7/63beedba0ce0ca850f65eb69_MKya00GHAVf1JdQe1aQJw1-0F3rqNpP2or02x7sz_qQxhlcEcW5UCIQKj-88GRHaojWb-q5hlzJYJC0nFOAFXUac5uAI8nR0s-d28V-zJ-pRvr9nk4XgtGlPOwZQOtDqfXNMVOQ5OPkVskm2cBywSbk9kFQs7BxgTjC8janNHkpbKv2QFYx5mcOxhqud7w.png)
 
@@ -228,6 +228,10 @@ cons:
 - Need to work across clouds. Since a lot of business data is in Alibaba Cloud, it is necessary to connect to Alibaba Cloud to access data through their specific way
 - High costs
 
+### AWS Glue
+
+AWS Glue is a spark serverless product launched by AWS. It integrates Notebook and task orchestration tools, and also supports CI/CD deployment. However, its own functions are relatively simple. It requires to integrate more AWS Products to meet the needs of the entire data lake. Since AWS China does not have Databricks, nor does it have a wide coverage product like Alibaba Cloud EMR+Dataworks, so here is only a simple understanding of AWS glue.
+![             在 AWS Glue 中填充您的数据目录和处理 ETL 数据流的基本概念。         ](https://docs.aws.amazon.com/zh_cn/glue/latest/dg/images/HowItWorks-overview.png)
 
 
 ### Detailed Comparison
