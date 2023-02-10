@@ -141,7 +141,7 @@ github repo对比:
 
 Delta的开源版和商业版本,提供了详细的内部设计文档,用户非常容易理解这个方案的内部设计和核心功能,同时Databricks还提供了大量对外分享的技术视频和演讲.Uber的工程师也分享了大量Hudi的技术细节和内部方案落地,同时在国内也在积极地推动社区建设,提供了官方的技术公众号和邮件列表周报.
 
-### 4. 性能对比
+### 5. 性能对比
 
 ![img](https://assets.website-files.com/61f38d7a4e41d6a673cd65c7/63beedba0ce0ca850f65eb69_MKya00GHAVf1JdQe1aQJw1-0F3rqNpP2or02x7sz_qQxhlcEcW5UCIQKj-88GRHaojWb-q5hlzJYJC0nFOAFXUac5uAI8nR0s-d28V-zJ-pRvr9nk4XgtGlPOwZQOtDqfXNMVOQ5OPkVskm2cBywSbk9kFQs7BxgTjC8janNHkpbKv2QFYx5mcOxhqud7w.png)
 

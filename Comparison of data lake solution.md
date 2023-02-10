@@ -1,19 +1,19 @@
 ## Current Pain Point
 
 1. It will be a serious flaw that if the system only support us copy and paste the code to Simba web page integrated editor, which means we cannot do DevOps or deployment automatically. Imaging if we have development, QA and production environments, then the data engineers would copy and paste the code manually from page every day. These large number of manual operations would make the entire development process low reliability and high complexity.
-2. The experience in web editor is extremely poor, and we will also lose the software engineering processes.
-- Breakpoints are not supported. The development experience would be extremely painful that if the development resources only be accessible online, and may need to be debugged the whole module in the editor of the simba webpage without breakpoints.
+2. The user experience in web editor is extremely poor, and there is no engineering experience.
+- Breakpoints are not supported. Some development resources can only be accessed online, which means we need to debug the whole module in the editor of the simba webpage. However, simba does not support this, and thus making the development process extremely painful.
 - Files cross import is not supported. This will lead to the code smell. If many modules have the same function, then you have to write repeated code in each file which leads to code redundancy. And for more complex functions, the amount of code in a file may be extremely large, which is difficult to maintain.
 - Passing parameters or environment variables is not supported. It would lead to security issues if we leave sensitive information, for example, database account and passwords as plain text on Simba webpage without encryption.
 3. There are almost no relevant reference documents, all functions can only be explored by ourselves, and the cost of getting started is relatively high. This problem is especially obvious in multi-team collaboration.
 4. It is hard to do trouble-shooting while the code execution failed since the error messages on webpage is quite limited.
-5. The python code on the simba actually parses the '#' symbol in string into a comment, causing the code to fail to execute. Which also reflects the low reliability of the system.
+5. The python code on the simba actually parses the '#' symbol in string into a comment, causing failure in code execution. Which also reflects the low reliability of the system.
 6. At present, spark/flink on simba are all unavailable, which is also unacceptable for big data processing.
 7. The processing efficiency is low. Usually, one simple SQL execution takes more than 10 seconds. When there is a large amount of data to be processed, things would become much worse. However, it is difficult to directly optimize it since it does not support Spark.
-8. Currently, the data reuse rate in Simba is low, and there is no specification for data development. Both data and code are messy, with a lot of redundant data and redundant processing
-9. There is no data quality monitoring. Without auto data quality pre-check, we would only have manually post-checked for data correctness during the whole data process.
+8. Currently, the data reuse rate in Simba is low, and there is no data development standard. Both data and code are messy, with a lot of redundant data and redundant processing.
+9. There is no data quality monitoring. Without data quality auto checking, we have to manually post-check data correctness during the whole data process.
 10. The data is directly stored on the ECS disk without any backup mechanism. It is also hard to migrate. 
-11. The system is unstable.For example, 504 gateway timeout often occurs while executing and the background task is still executing while the task has already been killed in page.
+11. The system is unstable.For example, 504 gateway timeout often occurs while executing, the background task is still executing while the task has already been killed in page, etc.
 
 
 
@@ -27,7 +27,7 @@ Based on the current pain points, we combined the current mainstream solutions a
 
 <img src="https://camo.githubusercontent.com/5535944a613e60c9be4d3a96e3d9bd34e5aba5cddc1aa6c6153123a958698289/68747470733a2f2f646f63732e64656c74612e696f2f6c61746573742f5f7374617469632f64656c74612d6c616b652d77686974652e706e67" alt="Delta Lake Logo" style="zoom: 25%;" />
 
-Delta Lake is an open source project of Apache Spark on Databricks. It is an important part of Databricks's expansion of the Spark ecosystem. With deep integration of Spark, it is very convenient to enjoy the convenience brought by the Spark ecosystem.
+Delta Lake is an open source project of Apache Spark on Databricks. It is an important part of Databricks's expansion of the Spark ecosystem. With deep integration of Spark, we can easily enjoy the convenience brought by the Spark ecosystem.
 
 Official Introduction: Delta Lake is an open-source storage framework that enables building a Lakehouse architecture with compute engines including Spark, PrestoDB, Flink, Trino, and Hive and APIs for Scala, Java, Rust, Ruby, and Python.
 
@@ -116,7 +116,7 @@ It can be seen that all above three data lake frameworks can read and write main
 
 In addition, it should be noted that although they support many reading and writing frameworks, some functions may only be used with specific frameworks to have more complete functions and higher performance. For example, the reading and writing of Delta actually has many advanced features that only support Spark.
 
-### 4. Community Momentum
+### 4. Community Current Situation
 
 Github Repo Comparison
 
@@ -136,7 +136,7 @@ Main Contributors
 
 As the current mainstream open source data lake solutions, their recent community activity is relatively high. However, Delta and Hudi have risen rapidly as rising stars, and they are obviously stronger than Iiceberg in the construction and promotion of open source communities.
 
-The open source and commercial versions of Delta provide detailed internal design documents, making it easy for users to understand the internal design and core functions of this solution. In addition, Databricks also share a large number of technical videos and speeches to public. Uber's engineers also shared a lot of Hudi's technical details and internal solutions. At the same time, they are also actively promoting community building in China, providing official technical public accounts and weekly mailing lists.
+The open source version and commercial version of Delta provide detailed internal design documents, making it easy for users to understand the internal design and core functions of this solution. In addition, Databricks also share a large number of technical videos and speeches to public. Uber's engineers also shared a lot of Hudi's technical details and internal solutions. At the same time, they are also actively promoting community building in China, providing official technical public accounts and weekly mailing lists.
 
 ### 5. Performance Comparison
 
@@ -228,10 +228,6 @@ cons:
 - Need to work across clouds. Since a lot of business data is in Alibaba Cloud, it is necessary to connect to Alibaba Cloud to access data through their specific way
 - High costs
 
-### AWS Glue
-
-AWS Glue is a spark serverless product launched by AWS. It integrates Notebook and task orchestration tools, and also supports CI/CD deployment. However, its own functions are relatively simple. It requires to integrate more AWS Products to meet the needs of the entire data lake. Since AWS China does not have Databricks, nor does it have a wide coverage product like Alibaba Cloud EMR+Dataworks, so here is only a simple understanding of AWS glue.
-![             在 AWS Glue 中填充您的数据目录和处理 ETL 数据流的基本概念。         ](https://docs.aws.amazon.com/zh_cn/glue/latest/dg/images/HowItWorks-overview.png)
 
 
 ### Detailed Comparison
